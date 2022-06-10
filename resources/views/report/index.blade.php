@@ -1,0 +1,106 @@
+@extends('report.layout')
+@section('content')
+    <div class="container">
+        <div class="row">
+ 
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header"></div>
+                    <div class="card-body">
+                        <a href="{{ url('/report/create') }}" class="hover:bg-pink-700 bg-white text-2xl font-serif text-blue-500 py-2" title="Add New Contact">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Add New report contents
+                        </a>
+                        <br/>
+                        <br/>
+                        <div class="table-responsive">
+                            <table class="border-separate border border-blue-900 w-full text-black  text-xl  ">
+                                <thead>
+                                    <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                                        
+                                        <th class="border border-black">Id</th>
+                                       
+                                        <th class="border border-black">Sname
+                                        <th class="border border-black">RegNo</th>
+                                        <th class="border border-black">programe</th>
+                                        <th class="border border-black">date_reported</th>
+                                        <th class="border border-black">date_finished</th>
+                                        <th class="border border-black">day_attend</th>
+                                        <th class="border border-black">day_missing</th>
+                                        <th class="border border-black">Org_name</th>
+                                        <th class="border border-black">Attitude toward field training</th>
+                                        <th class="border border-black">organizes work well</th>
+                                        <th class="border border-black">completes assigned tasks on time/punctual at work</th>
+                                        <th class="border border-black">Has initiative/resourcefulness</th>
+                                        <th class="border border-black">accuracy of work</th>
+                                        <th class="border border-black">adapts to working conditions</th>
+                                        <th class="border border-black">has ability to get along with others work</th>
+                                        <th class="border border-black">Follows upon assignments</th>
+                                        <th class="border border-black">ability to communicate with supervisor</th>
+                                        <th class="border border-black">ability to apply theory in practice</th>
+                                        <th class="border border-black">ability to judge</th>
+                                        <th class="border border-black">Adherence to general code of conduct</th>
+                                        <th class="border border-black">comments</th>
+                                        <th class="border border-black">name</th>
+                                        <th class="border border-black">designation</th>
+                                        <th class="border border-black">contact</th>
+                                        <th class="border border-black">email</th>
+                                        <th class="border border-black">date</th>
+                                        <th class="border border-black">signature</th>
+                                        <th class="border border-black">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($reports as $item)
+                                    <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                                        <td class="border border-black">{{ $loop->iteration }}</td>
+                                        
+                                        <td class="border border-black">{{ $item->Sname}}</td>
+                                        <td class="border border-black">{{ $item->RegNo}}</td>
+                                        <td class="border border-black">{{ $item->programe}}</td>
+                                        <td class="border border-black">{{ $item->date_reported}}</td>
+                                        <td class="border border-black">{{ $item->date_finished}}</td>
+                                        <td class="border border-black">{{ $item->day_attend}}</td>
+                                        <td class="border border-black">{{ $item->day_missing}}</td>
+                                        <td class="border border-black">{{ $item->Org_name}}</td>
+                                        <td class="border border-black">{{ $item->Attitude}}</td>
+                                        <td class="border border-black">{{ $item->organizes}}</td>
+                                        <td class="border border-black">{{ $item->panctual}}</td>
+                                        <td class="border border-black">{{ $item->resourcefulness}}</td>
+                                        <td class="border border-black">{{ $item->accuracy}}</td>
+                                        <td class="border border-black">{{ $item->adapts}}</td>
+                                        <td class="border border-black">{{ $item->has_ability_to_get_along_with_others_work}}</td>
+                                        <td class="border border-black">{{ $item->Follows_upon_assignments}}</td>
+                                        <td class="border border-black">{{ $item->ability_to_communicate_with_supervisor}}</td>
+                                        <td class="border border-black">{{ $item->ability_to_apply_theory_in_practice}}</td>
+                                        <td class="border border-black">{{ $item->ability_to_judge}}</td>
+                                        <td class="border border-black">{{ $item->Adherence_to_general_code_of_conduct}}</td>
+                                        <td class="border border-black">{{ $item->comments}}</td>
+                                        <td class="border border-black">{{ $item->name}}</td>
+                                        <td class="border border-black">{{ $item->designation}}</td>
+                                        <td class="border border-black">{{ $item->contact}}</td>
+                                        <td class="border border-black">{{ $item->email}}</td>
+                                        <td class="border border-black">{{ $item->date}}</td>
+                                        <td class="border border-black">{{ $item->signature}}</td>
+ 
+                                        <td class="border border-black">
+                                            <a href="{{ url('/report/' . $item->id) }}" title="View Supervisor"><button class="w-full p-2 pl-5 pr-5 bg-green-500 text-gray-100 text-lg rounded-lg focus:border-4 border-green-300"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('/report/' . $item->id . '/edit') }}" title="Edit Supervisor"><button class="w-full p-2 pl-5 pr-5 bg-yellow-500 text-gray-100 text-lg rounded-lg focus:border-4 border-yellow-300"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+ 
+                                            <form method="POST" action="{{ url('/report' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                                {{ method_field('DELETE') }}
+                                                {{ csrf_field() }}
+                                                <button type="submit" class="w-full p-2 pl-5 pr-5 bg-red-500 text-gray-100 text-lg rounded-lg focus:border-4 border-red-300" title="Delete Contact" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+ 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

@@ -68,7 +68,11 @@
 	        {!! csrf_field() !!}
             <table class="min-w-full divide-y divide-gray-200">
             <tr>
-	        <td class="border border-black">student's name:<input class="float-right rounded-lg w-3/6 p-2.5"  type="text" name="Sname"  placeholder="student's name"></td>
+	        <td class="border border-black">student's name:<input class="float-right rounded-lg w-3/6 p-2.5 form-input  @error('name')  border-red-500 @enderror"  type="text" name="Sname"  placeholder="student's name"> @error('Sname')
+				<p class="text-red-500 text-xs italic mt-4">
+					{{ $message }}
+				</p>
+				@enderror</td>
 	        <td class="border border-black">student's REG.No:<input class="float-right rounded-lg w-3/6 p-2.5" type="text" name="RegNo"  placeholder="student's REG.No"></td></tr>
 	        <tr><td class="border border-black"><br> students program:<input class="float-right rounded-lg w-3/6 p-2.5"  type="text" name="programe"  placeholder="students program"></td>
 		    <td class="border border-black">Date reported<input class="float-right rounded-lg w-3/6 p-2.5"  type="date" name="date_reported"  placeholder="date reported for field work"></td>

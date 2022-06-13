@@ -21,7 +21,13 @@ class ReportController extends Controller
 
    
     public function store(Request $request)
-    {
+    { 
+
+        $request->validate([
+            'name'=>'required',
+            
+        ]);
+
         $input = $request->all();
         Report::create($input);
         return redirect('report')->with('flash_message', 'report Addedd!');  

@@ -1,6 +1,7 @@
-@extends('post.layout')
+@extends('dashboard.coordinator.home')
 @section('content')
-     
+<div class="flex justify-center py-2 ">
+    <div class="w-4/6 bg-white p-6 rounded-lg">
                     <div class="card-body">
                         <a href="{{ url('/post/create') }}" class="hover:bg-pink-700 bg-white text-2xl font-serif text-blue-500 py-2" title="Add New Contact">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New Daily Activities
@@ -41,6 +42,8 @@
                                 </tbody>
                             </table>
                         </div>
- 
+
+                    </div>
+    </div> 
           
 @endsection

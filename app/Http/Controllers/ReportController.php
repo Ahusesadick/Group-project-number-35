@@ -24,7 +24,7 @@ class ReportController extends Controller
     { 
 
         $request->validate([
-            'name'=>'required',
+            'name'=>'required|max:255|regex:/^[a-zA-Z]+$/',
             
         ]);
 

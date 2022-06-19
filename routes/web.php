@@ -6,6 +6,10 @@ use App\Http\Controllers\Coordinator\CoordinatorController;
 use App\Http\Controllers\Supervisor\SupervisorController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ShowController;
+use App\Http\Controllers\ShowSupervisorController;
+
+
 
 
 Route::get('/', function () {
@@ -22,13 +26,19 @@ Route::prefix('user')->name('user.')->group(function(){
         Route::view('/register','dashboard.user.register')->name('register');
         Route::post('/create',[UserController::class,'create'])->name('create');
         Route::post('/check',[UserController::class,'check'])->name('check');
+       
+        
     });
 
     Route::middleware(['auth:web','PreventBackHistory'])->group(function(){
        Route::view('/home','dashboard.user.home')->name('home');
        Route::post('/logout',[UserController::class,'logout'])->name('logout');
+      
+      
    });
 });
+
+
       //coordinator
 Route::prefix('coordinator')->name('coordinator.')->group(function(){
 
@@ -40,8 +50,11 @@ Route::prefix('coordinator')->name('coordinator.')->group(function(){
     Route::middleware(['auth:coordinator','PreventBackHistory'])->group(function(){
        Route::view('/home','dashboard.coordinator.home')->name('home');
        Route::post('/logout',[CoordinatorController::class,'logout'])->name('logout');
+      
    });
+   
 });
+
 
 
 Route::prefix('supervisor')->name('supervisor.')->group(function(){
@@ -69,6 +82,14 @@ Route::prefix('supervisor')->name('supervisor.')->group(function(){
 Route::resource('/post', PostController::class);
 
 Route::resource('/report', ReportController::class);
+
+Route::get('users', [ShowController::class,'users']);
+
+Route::get('supervisors', [ShowSupervisorController::class,'supervisors']);
+
+
+
+
 
 
 

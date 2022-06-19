@@ -22,9 +22,18 @@ class PostController extends Controller
    
     public function store(Request $request)
     {
+        $request->validate([
+            'description'=>'required|max:255|regex:/^[a-zA-Z]+$/',
+            
+        ]);
+
         $input = $request->all();
         Post::create($input);
-        return redirect('post')->with('flash_message', 'report Addedd!');  
+        if( $request ){
+            return redirect()->back()->with('success','report Addedd!');
+        }
+        
+         
     }
 
     

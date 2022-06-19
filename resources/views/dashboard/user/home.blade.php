@@ -44,21 +44,11 @@
                 </nav>
             </div>
         </header>
-        <div class="sidenav">
-            <div class="flex fixed w-60 h-full shadow-md bg-black px-1 fixed  ">
-                <ul class="relative text-white font-bold  text-left text-xl underline ">
-                    
-                    <li><a href="#section2" class="p-4"><h3 class="hover:bg-pink-700">My-information</h3></a></li>
-                    <li><a href="{{ url('post') }}" class="p-4"><h3 class="hover:bg-pink-700">Daily-recorded-events</h3></a></li>
-                    
-                </ul>
-              </div>
-        </div>
         
-    </div>
         
 
     <div class="flex justify-center py-10 ">
+        
        
         <div class="w-3/6 bg-blue-200  p-6 rounded-lg">
             <h3 class="text-center py-2 text-2xl font-bold"> Input your daily working activities</h3>
@@ -79,7 +69,7 @@
                     </div>
                     <div>
                         <label for="description" class="block mb-2 text-sm font-medium text-gray-900 font-bold dark:text-gray-400">Input your daily activities here</label>
-                        <textarea  name="description" id="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your Events..."></textarea>
+                        <textarea  name="description" id="description" rows="4" class=" @error('description')  border-red-500 @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your Events..."></textarea>
 
                     </div>
                     <button type="submit" class="absolute bottom-1/2 right-1/2 text-white  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm  sm:w-auto px-5 py-4 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>

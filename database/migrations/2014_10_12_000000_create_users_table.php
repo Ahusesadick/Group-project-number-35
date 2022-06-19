@@ -26,6 +26,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+           // $table->unsignedBigInteger('supervisor_id');
+           // $table->foregn('supervisor_id')->references('id')->on('supervisors')->onUpdate('cascade')->onDelete();
+
         });
     }
 

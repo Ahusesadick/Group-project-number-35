@@ -13,13 +13,14 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
-<body class=" fixed  bg-cover" style="background-image: url( {{ asset('images/9.jpg') }})">
+<body class=" fixed  bg-cover" style="background-image: url( {{ asset('images/system.jpg') }})">
 
-    <h1  class="  text-center text-white font-bold text-3xl"><marquee>WELCOME TO OUR SYSTEM</marquee></h1>
+   
 
-<div class=" flex flex-col">
+<div class=" flex flex-col" >
+    
     @if(Route::has('user.login'))
-        <div class=" py-8 absolute top-0 right-0 mt-4 mr-4 space-x-4 sm:mt-6 sm:mr-6 sm:space-x-6">
+        <div class=" py-2 absolute top-0 right-0 mt-4 mr-4 space-x-4 sm:mt-6 sm:mr-6 sm:space-x-6">
             @auth
                 <a href="{{ url('/home') }}" class="no-underline hover:underline text-lg text-white font-bolder  uppercase">{{ __('Home') }}</a>
             @else
@@ -37,8 +38,9 @@
         
         <div class="flex flex-col justify-around h-full">
             <div>
+                <h1  class="  text-center text-white font-bold text-3xl"><marquee>WELCOME TO OUR SYSTEM</marquee></h1>
                 <h1 class="mb-6 text-white font-bold font-serif  text-center  tracking-wider text-3xl sm:mb-8 sm:text-5xl">
-                    {{ config('app.name', 'frsys') }}
+                    {{ config('', ) }}
                 </h1>
                 
             </div>

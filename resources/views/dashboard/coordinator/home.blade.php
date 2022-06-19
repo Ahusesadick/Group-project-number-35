@@ -17,7 +17,7 @@
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
     <div id="app">
-        <header class="bg-blue-900 py-6">
+        <header class="bg-blue-900 py-6 " >
             <div class="container mx-auto flex justify-between items-center px-6">
                 <div>
                     <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
@@ -45,8 +45,11 @@
             <div class="flex fixed w-60 h-full shadow-md bg-black px-1 fixed  ">
                 <ul class="relative text-white font-bold  text-left text-xl underline ">
                     
-                    <li><a href="#section2" class="p-4"><h3 class="hover:bg-pink-700"></h3></a></li>
-                    <li><a href="#section3" class="p-4"><h3 class="hover:bg-pink-700"></h3></a></li>
+                    <li><a href="{{ url('coordinator/home') }}" class="p-4"><h3 class="hover:bg-pink-700">HOME</h3></a></li>
+                    <li><a href="{{ url('users') }}" class="p-4"><h3 class="hover:bg-pink-700">STUDENT LISTS</h3></a></li>
+                    <li><a href="{{ url('supervisors') }}" class="p-4"><h3 class="hover:bg-pink-700">SUPERVISOR LISTS</h3></a></li>
+                    <li><a href="{{ url('post') }}" class="p-4"><h3 class="hover:bg-pink-700">view students report here</h3></a></li>
+                    <li><a href="{{ url('report') }}" class="p-4"><h3 class="hover:bg-pink-700">view supervisor report here</h3></a></li>
                     
                 </ul>
               </div>
@@ -54,20 +57,12 @@
     </div>
        
 
-    <div class="flex justify-center py-2">
-        <div class="w-4/12 bg-blue-300 p-6 rounded-lg">
-            <h3 class="text-center text-5xl font-bold"> <a href="{{ url('post') }}" class="p-4"><h3 class="hover:bg-pink-700">view students report here</h3></a></h3>
-        </div>
-      </div> 
-
-      <div class="flex justify-center py-2">
-        <div class="w-4/12 bg-blue-300 p-6 rounded-lg">
-            <h3 class="text-center text-5xl font-bold"> <a href="{{ url('report') }}" class="p-4"><h3 class="hover:bg-pink-700">view supervisor report here</h3></a></h3>
-        </div>
-      </div> 
+    
+      
 
     <footer>
         @include('dashboard.footer')
     </footer>
+    @yield('content')
 </body>
 </html>

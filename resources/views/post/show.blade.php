@@ -9,7 +9,8 @@
    
  
         <div class="text-2xl font-serif px-2 py-2 pl-2 pr-2 font-bold">
-       
+
+          <p class="card-text">Name : {{ $posts->name  }}</p>
         <p class="card-text">Date : {{ $posts->date }}</p>
         <p class="card-text">Description : {{ $posts->description }}</p>
   </div>

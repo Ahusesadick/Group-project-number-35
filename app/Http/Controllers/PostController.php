@@ -23,14 +23,15 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'description'=>'required|max:255|regex:/^[a-zA-Z]+$/',
+            'description'=>'required',
+            'name'=>'required',
             
         ]);
 
         $input = $request->all();
         Post::create($input);
         if( $request ){
-            return redirect()->back()->with('success','report Addedd!');
+            return redirect()->back()->with('success','Thanks your today report Addedd successfully!');
         }
         
          

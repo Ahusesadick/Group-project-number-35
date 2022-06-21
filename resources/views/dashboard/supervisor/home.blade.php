@@ -65,6 +65,11 @@
             <h4 class="text-center text-2xl font-bold ">Host Supervisor's Evaluation of Student Performance</h4>
             <p class="text-xl text-black py-4"><b>Dear Supervisor:</b>Please fill in this form to the best of your knowledge, submit it,This form is confidential!</p>
             <form action="{{ url('report') }}" method="post"  class=" grid justify-items-stretch font-bold">
+				@if(Session::has('success'))
+                <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+                    {{ Session::get('success') }}
+                </div>
+                @endif
 	        {!! csrf_field() !!}
             <table class="min-w-full divide-y divide-gray-200">
             <tr>

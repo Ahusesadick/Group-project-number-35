@@ -30,7 +30,9 @@ class ReportController extends Controller
 
         $input = $request->all();
         Report::create($input);
-        return redirect('report')->with('flash_message', 'report Addedd!');  
+        if( $request ){
+            return redirect()->back()->with('success','Thanks your report Addedd successfully!');
+        }
     }
 
     

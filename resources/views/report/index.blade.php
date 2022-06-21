@@ -7,10 +7,12 @@
                 <div class="card">
                     <div class="card-header"></div>
                     <div class="card-body">
-                        <a href="{{ url('/report/create') }}" class="hover:bg-pink-700 bg-white text-2xl font-serif text-blue-500 py-2" title="Add New Contact">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New report contents
+                       
+                        <a href="{{ url('coordinator/home') }}" class="px-4 hover:bg-pink-700 bg-blue-900 text-2xl font-serif text-white py-2">
+                            <i class="fa fa-plus" aria-hidden="true"></i> HOME
                         </a>
                         <br/>
+                        
                         <br/>
                         <div class="table-responsive">
                             <table class="border-separate border border-blue-900 w-full text-black  text-xl  ">
@@ -83,8 +85,8 @@
                                         <td class="border border-black">{{ $item->signature}}</td>
  
                                         <td class="border border-black">
-                                            <a href="{{ url('/report/' . $item->id) }}" title="View Supervisor"><button class="w-full p-2 pl-5 pr-5 bg-green-500 text-gray-100 text-lg rounded-lg focus:border-4 border-green-300"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/report/' . $item->id . '/edit') }}" title="Edit Supervisor"><button class="w-full p-2 pl-5 pr-5 bg-yellow-500 text-gray-100 text-lg rounded-lg focus:border-4 border-yellow-300"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/report/' . $item->id) }}" title="View Supervisor"><button class="w-full p-2 pl-5 pr-5 bg-blue-900 text-gray-100 text-lg rounded-lg focus:border-4 border-green-300"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            
  
                                             <form method="POST" action="{{ url('/report' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}

@@ -5,11 +5,11 @@
  
  
 <div class="card">
-  <div class="text-4xl">STUDENT REPORT FROM SUPERVISOR</div>
+  <div class="text-2xl">STUDENT REPORT FROM SUPERVISOR</div>
   <div class="card-body">
    
  
-        <div class="text-2xl font-serif px-2 py-2 pl-2 pr-2 font-bold">
+        <div class="text-xl font-serif px-2 py-2 pl-2 pr-2 font-bold">
         <h5 class="card-title">Sname : {{ $reports->Sname }}</h5>
         <p class="card-text">RegNo : {{ $reports->RegNo }}</p>
         <p class="card-text">progame : {{ $reports->programe }}</p>

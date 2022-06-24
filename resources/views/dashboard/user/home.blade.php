@@ -18,6 +18,10 @@
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
     <div id="app">
         <header class="bg-blue-900 py-6">
+            <a href="#" class="flex items-center pl-2.5 mb-">
+                <img src="{{ asset('images/1.jpg') }}" class="w-100 mr-3 h-6 sm:h-15" alt="Flowbite Logo" />
+                
+             </a>
             <div class="container mx-auto flex justify-between items-center px-6">
                 <div>
                     <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">

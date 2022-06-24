@@ -16,7 +16,7 @@
 <body class=" fixed  bg-cover" style="background-image: url( {{ asset('images/system.jpg') }})">
 
    
-
+    
 <div class=" flex flex-col" >
     
     @if(Route::has('user.login'))

@@ -70,21 +70,19 @@
                     {{ Session::get('success') }}
                 </div>
                 @endif
+		
 	        {!! csrf_field() !!}
             <table class="min-w-full divide-y divide-gray-200">
             <tr>
-	        <td class="border border-black">student's name:<input class="float-right rounded-lg w-3/6 p-2.5 form-input  @error('name')  border-red-500 @enderror"  type="text" name="Sname"  placeholder="student's name"> @error('Sname')
-				<p class="text-red-500 text-xs italic mt-4">
-					{{ $message }}
-				</p>
-				@enderror</td>
-	        <td class="border border-black">student's REG.No:<input class="float-right rounded-lg w-3/6 p-2.5" type="text" name="RegNo"  placeholder="student's REG.No"></td></tr>
-	        <tr><td class="border border-black"><br> students program:<input class="float-right rounded-lg w-3/6 p-2.5"  type="text" name="programe"  placeholder="students program"></td>
-		    <td class="border border-black">Date reported<input class="float-right rounded-lg w-3/6 p-2.5"  type="date" name="date_reported"  placeholder="date reported for field work"></td>
-	        <tr ><td class="border border-black"> Date finished<input class="float-right rounded-lg w-3/6 p-2.5" type="date" name="date_finished"  placeholder="Date finished field work:"></td>
-	        <td class="border border-black">number of days attended to field place:<input class="float-right rounded-lg w-3/6 p-2.5" type="numeric" name="day_attend"  placeholder="number of days attended "><br></td></tr>
-	        <tr ><td class="border border-black">number of days absent from field<input class="float-right rounded-lg w-3/6 p-2.5" type="text" name="day_missing"  placeholder="number of days absent from field"></td>
-	        <td class="border border-black">organization's name<input class="float-right rounded-lg w-3/6 p-2.5" type="text" name="Org_name"  placeholder="organization's name"><br></td></tr>	
+	        <td class="border border-black">student's name:<input class="float-right rounded-lg w-3/6 p-2.5 form-input  "  type="text" name="Sname"  placeholder="student's name" value="{{ old('Sname') }}" required autocomplete="Sname" autofocus> 
+			</td>
+	        <td class="border border-black">student's REG.No:<input class="float-right rounded-lg w-3/6 p-2.5" type="text" name="RegNo"  placeholder="student's REG.No" value="{{ old('RegNo') }}" required autocomplete="RegNo" autofocus></td></tr>
+	        <tr><td class="border border-black"><br> students program:<input class="float-right rounded-lg w-3/6 p-2.5"  type="text" name="programe"  placeholder="students program" value="{{ old('programe') }}" required autocomplete="programe" autofocus></td>
+		    <td class="border border-black">Date reported<input class="float-right rounded-lg w-3/6 p-2.5"  type="date" name="date_reported"  placeholder="date reported for field work" value="{{ old('date_reported') }}" required autocomplete="date_reported" autofocus></td>
+	        <tr ><td class="border border-black"> Date finished<input class="float-right rounded-lg w-3/6 p-2.5" type="date" name="date_finished"  placeholder="Date finished field work:" value="{{ old('date_finished') }}" required autocomplete="date_finished" autofocus></td>
+	        <td class="border border-black">number of days attended to field place:<input class="float-right rounded-lg w-3/6 p-2.5" type="numeric" name="day_attend"  placeholder="number of days attended " value="{{ old('day_attend') }}" required autocomplete="day_attend" autofocus><br></td></tr>
+	        <tr ><td class="border border-black">number of days absent from field<input class="float-right rounded-lg w-3/6 p-2.5" type="text" name="day_missing"  placeholder="number of days absent from field" value="{{ old('day_missing') }}" required autocomplete="day_missing" autofocus></td>
+	        <td class="border border-black">organization's name<input class="float-right rounded-lg w-3/6 p-2.5" type="text" name="Org_name"  placeholder="organization's name" value="{{ old('Org_name') }}" required autocomplete="Org_name" autofocus><br></td></tr>	
 	        </tr>
             </table>
 
@@ -92,8 +90,8 @@
             <table class="min-w-full divide-y divide-gray-200 ">
 	        <tr >
 	        <td class="border border-blue-900"><label>Attitude toward field training</label>
-	    <select name="Attitude" class="w-1/2 float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-		    <option value="choose">choose</option>
+	    <select name="Attitude" value="{{ old('Attitude') }}" required autocomplete="Attitude" autofocus class="w-1/2 float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+		    <option value="">choose</option>
 		    <option value="excellent">excellent</option>
 			<option value="very good">very good</option>
 			<option value="good">good</option>
@@ -101,8 +99,8 @@
 			<option value="poor">poor</option>
 		</select></td>
 			<td class="border border-blue-900"><label>organizes work well</label>
-		<select name="organizes" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-			<option value="choose">choose</option>
+		<select name="organizes" value="{{ old('organizes') }}" required autocomplete="organizes" autofocus class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+			<option value="">choose</option>
 		    <option value="excellent">excellent</option>
 			<option value="very good">very good</option>
 			<option value="good">good</option>
@@ -111,8 +109,8 @@
 		</select></td>
 		</tr>
 		<tr ><td class="border border-blue-900"><label>completes assigned tasks on time/punctual at work</label>
-		<select name="panctual" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-			<option value="choose">choose</option>
+		<select name="panctual" value="{{ old('panctual') }}" required autocomplete="panctual" autofocus class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+			<option value="">choose</option>
 		    <option value="excellent">excellent</option>
 			<option value="very good">very good</option>
 			<option value="good">good</option>
@@ -121,8 +119,8 @@
 		</select></td>
 		
 		<td class="border border-blue-900"><label>Has initiative/resourcefulness</label>
-		<select name="resourcefulness" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-			<option value="choose">choose</option>
+		<select name="resourcefulness" value="{{ old('resourcefulness') }}" required autocomplete="resourcefulness" autofocus class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+			<option value="">choose</option>
 		    <option value="excellent">excellent</option>
 			<option value="very good">very good</option>
 			<option value="good">good</option>
@@ -131,8 +129,8 @@
 		</select></td></tr>
 		
 		<tr ><td class="border border-blue-900"><label>accuracy of work</label>
-		<select name="accuracy" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-			<option value="choose">choose</option>
+		<select name="accuracy" value="{{ old('accuracy') }}" required autocomplete="accuracy" autofocus class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+			<option value="">choose</option>
 		    <option value="excellent">excellent</option>
 			<option value="very good">very good</option>
 			<option value="good">good</option>
@@ -141,8 +139,8 @@
 		</select></td>
 		
 		<td class="border border-blue-900"><label>adapts to working conditions</label>
-		<select name="adapts" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-			<option value="choose">choose</option>
+		<select name="adapts" value="{{ old('adapts') }}" required autocomplete="adapts" autofocus class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+			<option value="">choose</option>
 		    <option value="excellent">excellent</option>
 			<option value="very good">very good</option>
 			<option value="good">good</option>
@@ -151,8 +149,8 @@
 		</select></td></tr>
 		
 		<tr ><td class="border border-blue-900"><label>Has ability to get along with others work</label>
-		<select name="has_ability_to_get_along_with_others_work" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-			<option value="choose">choose</option>
+		<select name="has_ability_to_get_along_with_others_work" value="{{ old('has_ability_to_get_along_with_others_work') }}" required autocomplete="has_ability_to_get_along_with_others_work" autofocus class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+			<option value="">choose</option>
 		    <option value="excellent">excellent</option>
 			<option value="very good">very good</option>
 			<option value="good">good</option>
@@ -161,8 +159,8 @@
 		</select></td>
 		
 		<td class="border border-blue-900"><label>Follows upon assignments</label>
-		<select name="Follows_upon_assignments" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-			<option value="choose">choose</option>
+		<select name="Follows_upon_assignments" value="{{ old('Follows_upon_assignments') }}" required autocomplete="Follows_upon_assignments" autofocus class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+			<option value="">choose</option>
 		    <option value="excellent">excellent</option>
 			<option value="very good">very good</option>
 			<option value="good">good</option>
@@ -171,8 +169,8 @@
 		</select></td></tr>
 		
 		<tr ><td class="border border-blue-900"><label>Has ability to communicate with supervisor</label>
-		<select name="ability_to_communicate_with_supervisor" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-			<option value="choose">choose</option>
+		<select name="ability_to_communicate_with_supervisor" value="{{ old('ability_to_communicate_with_supervisor') }}" required autocomplete="ability_to_communicate_with_supervisor" autofocus class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+			<option value="">choose</option>
 		    <option value="excellent">excellent</option>
 			<option value="very good">very good</option>
 			<option value="good">good</option>
@@ -182,8 +180,8 @@
 		
 		<td class="border border-blue-900"><label>Has ability to apply theory in practice</label>
 		
-		<select name="ability_to_apply_theory_in_practice" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-			<option value="choose">choose</option>
+		<select name="ability_to_apply_theory_in_practice" value="{{ old('ability_to_apply_theory_in_practice') }}" required autocomplete="ability_to_apply_theory_in_practice" autofocus class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+			<option value="">choose</option>
 		    <option value="excellent">excellent</option>
 			<option value="very good">very good</option>
 			<option value="good">good</option>
@@ -191,8 +189,8 @@
 			<option value="poor">poor</option>
 		</select></td></tr>
 		<tr ><td class="border border-blue-900"><label>Has ability to judge or take decisions</label>
-		<select name="ability_to_judge" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-			<option value="choose">choose</option>
+		<select name="ability_to_judge" value="{{ old('ability_to_judge') }}" required autocomplete="ability_to_judge" autofocus class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+			<option value="">choose</option>
 		    <option value="excellent">excellent</option>
 			<option value="very good">very good</option>
 			<option value="good">good</option>
@@ -201,8 +199,8 @@
 		</select></td>
 		
 		<td class="border border-blue-900"><label>Adherence to general code of conduct</label>
-		<select name="Adherence_to_general_code_of_conduct" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-			<option value="choose">choose</option>
+		<select name="Adherence_to_general_code_of_conduct" value="{{ old('Adherence_to_general_code_of_conduct') }}" required autocomplete="Adherence_to_general_code_of_conduct" autofocus class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+			<option value="">choose</option>
 		    <option value="excellent">excellent</option>
 			<option value="very good">very good</option>
 			<option value="good">good</option>
@@ -213,43 +211,43 @@
 
         <p class="py-4"><b>Additional Comments: (Remarks on student's general performance and what should be done by the University?)</b></p>
  
-        <textarea name="comments" id="message" rows="4" class="float-right  block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg py-4" placeholder="Your message"></textarea>
+        <textarea name="comments" value="{{ old('comments') }}" required autocomplete="comments" autofocus id="message" rows="4" class="float-right  block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg py-4" placeholder="Your message"></textarea>
         <br>
 
 <table class="min-w-full divide-y divide-gray-200 ">	
 	<tr >
 		<td class=" border border-blue-900">
 			
-				Host supervisor name:<input placeholder="name" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-3/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" name="name">
+				Host supervisor name:<input placeholder="name"  class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-3/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 		
 		</td>
 		<td class="border border-blue-900">
 			
-				host supervisor designation:<input placeholder="designation" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-3/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" name="designation"> 
+				host supervisor designation:<input placeholder="designation" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-3/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" name="designation" value="{{ old('designation') }}" required autocomplete="designation" autofocus> 
 			
 		</td>
 	</tr>
 	<tr >
 		<td class="border border-blue-900">
 		
-				contact:<input placeholder="contact" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-3/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" name="contact">
+				contact:<input placeholder="contact" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-3/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" name="contact" value="{{ old('contact') }}" required autocomplete="contact" autofocus>
 			
 		</td>
 		<td class="border border-blue-900">
 			
-				website/email:<input placeholder="email/website" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-3/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" name="email">
+				website/email:<input placeholder="email/website" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-3/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 			
 		</td>
 	</tr>
 	<tr>
 		<td class="border border-blue-900">
 		
-				date:<input placeholder="date" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-3/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="date" name="date">
+				date:<input placeholder="date" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-3/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="date" name="date" value="{{ old('date') }}" required autocomplete="date" autofocus>
 		
 		</td>
 		<td class="border border-blue-900">
 			
-				signature:<input placeholder="signature" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-3/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" name="signature">
+				signature:<input placeholder="signature" class="float-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-3/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" name="signature" value="{{ old('signature') }}" required autocomplete="signature" autofocus>
 			
 		</td>
 	</tr>

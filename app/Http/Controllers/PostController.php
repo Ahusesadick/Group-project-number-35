@@ -25,6 +25,7 @@ class PostController extends Controller
         $request->validate([
             'description'=>'required',
             'name'=>'required',
+            'date'=>'required',
             
         ]);
 

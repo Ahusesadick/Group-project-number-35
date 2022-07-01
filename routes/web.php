@@ -4,10 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Coordinator\CoordinatorController;
 use App\Http\Controllers\Supervisor\SupervisorController;
+use App\Http\Controllers\Orgsupervisor\OrgsupervisorController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\ShowSupervisorController;
+use App\Http\Controllers\DynamicPDFController;
 
 
 
@@ -72,6 +74,21 @@ Route::prefix('supervisor')->name('supervisor.')->group(function(){
    });
 });
 
+Route::prefix('orgsupervisor')->name('orgsupervisor.')->group(function(){
+
+    Route::middleware(['guest:orgsupervisor','PreventBackHistory'])->group(function(){
+        Route::view('/login','dashboard.orgsupervisor.login')->name('login');
+        Route::view('/register','dashboard.orgsupervisor.register')->name('register');
+        Route::post('/create',[OrgsupervisorController::class,'create'])->name('create');
+        Route::post('/check',[OrgsupervisorController::class,'check'])->name('check');
+    });
+
+    Route::middleware(['auth:orgsupervisor','PreventBackHistory'])->group(function(){
+       Route::view('/home','dashboard.orgsupervisor.home')->name('home');
+       Route::post('/logout',[OrgsupervisorController::class,'logout'])->name('logout');
+   });
+});
+
 //Route::get('/user.home',[PostController::class,'addPost'])->name('post.add');
 //Route::post('/user.home',[PostController::class,'savePost'])->name('save.post');
 //Route::get('/post-list',[PostController::class,'postList'])->name('post.list');
@@ -86,6 +103,30 @@ Route::resource('/report', ReportController::class);
 Route::get('users', [ShowController::class,'users']);
 
 Route::get('supervisors', [ShowSupervisorController::class,'supervisors']);
+
+
+//Route::get('/post_pdf', [DynamicPDFController::class,'index']);
+Route::get('/post.index', [PostController::class,'index']);
+
+Route::get('/post.index', [PostController::class,'pdf']);
+
+
+Route::get('/show', [ShowController::class,'users']);
+
+Route::get('/show', [ShowController::class,'pdf']);
+
+
+Route::get('/showsupervisor', [ShowSupervisorController::class,'supervisors']);
+
+Route::get('/showsupervisor', [ShowSupervisorController::class,'pdf']);
+
+
+Route::get('/report.show', [ReportController::class,'show']);
+
+Route::get('/report.show', [ReportController::class,'pdf']);
+
+
+
 
 
 

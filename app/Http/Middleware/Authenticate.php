@@ -23,6 +23,10 @@ class Authenticate extends Middleware
             if($request->routeIs('supervisor.*')){
                 return route('supervisor.login');
             }
+
+            if($request->routeIs('orgsupervisor.*')){
+                return route('orgsupervisor.login');
+            }
             return route('user.login');
         }
     }

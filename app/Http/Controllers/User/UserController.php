@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -15,11 +16,15 @@ class UserController extends Controller
    {
        $request->validate([
            'name'=>'required|max:255|regex:/^[a-zA-Z]+$/',
-           'email'=>'required|email|unique:users,email',
+           //'email'=>'required|email|unique:users,email|regex:/(.+)@(.+)\.(.+)/i',
+           //'email'=>'required|email',
+           'email' => 'email:rfc,dns|unique:users,email',
            //'email' => ['bail','required', 'string', 'email:dns', 'max:255', 'unique:users'],
            'RegNo'=>'required|max:255',
            'Programme'=>'required|max:255',
-           'PhoneNo'=>'required|regex:/^[-0-9\+]+$/',
+           //'PhoneNo'=>'required|regex:/(01)[0-9]{9}/',
+           'PhoneNo' => ['required', 'digits:10'],
+           //'PhoneNo' => 'required|regex:/(0)[0-9]{9}/|not_regex:/[a-z]/',
            'Orgname'=>'required|max:255',
            'Orglocation'=>'required|max:255',
            'password'=>'required|min:5|max:30',

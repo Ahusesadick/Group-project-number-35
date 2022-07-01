@@ -19,20 +19,26 @@
     
 <div class=" flex flex-col" >
     
-    @if(Route::has('user.login'))
-        <div class=" py-2 absolute top-0 right-0 mt-4 mr-4 space-x-4 sm:mt-6 sm:mr-6 sm:space-x-6">
-            @auth
-                <a href="{{ url('/home') }}" class="no-underline hover:underline text-lg text-white font-bolder  uppercase">{{ __('Home') }}</a>
-            @else
-                <a href="{{ route('user.login') }}" class="no-underline hover:underline text-lg text-white font-bold font-bolder  uppercase">{{ __('Login') }}</a>
-                @if (Route::has('user.register'))
-                    <a href="{{ route('user.register') }}" class="no-underline hover:underline text-lg text-white font-bold font-bolder  uppercase">{{ __('Register') }}</a>
-                @endif
-            @endauth
-        </div>
-    @endif
+    
   
-      
+    <h6 class="text-white font-bold text-xl py-2">Login as
+                           
+        <div class="inline-flex rounded-md shadow-sm">
+            <a href="{{ route('user.login') }}" aria-current="page" class="py-2 px-4 text-sm font-medium text-blue-700 bg-white rounded-l-lg border border-gray-200 hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+              Student
+            </a>
+            <a href="{{ route('supervisor.login') }}" class="py-2 px-4 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+              Supervisor
+            </a>
+            <a href="{{ route('coordinator.login') }}" class="py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-r-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+              Coordinator
+            </a>
+            <a href="{{ route('orgsupervisor.login') }}" class="py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-r-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                Organization Supervisor
+              </a>
+          </div>
+          
+                                </h6>
   
     <div class="min-h-screen flex items-center justify-center">
         

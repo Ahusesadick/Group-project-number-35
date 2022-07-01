@@ -31,6 +31,10 @@ class RedirectIfAuthenticated
                 if($guard === 'supervisor'){
                     return redirect()->route('supervisor.home');
                 }
+
+                if($guard === 'orgsupervisor'){
+                    return redirect()->route('orgsupervisor.home');
+                }
                  return redirect()->route('user.home');
                 
                 //return redirect(RouteServiceProvider::HOME);

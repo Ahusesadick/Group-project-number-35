@@ -14,9 +14,12 @@ class SupervisorController extends Controller
    {
        $request->validate([
            'name'=>'required|max:255|regex:/^[a-zA-Z]+$/',
-           'email'=>'required|email|unique:supervisors,email',
+           //'email'=>'required|email|unique:supervisors,email',
+           //'email'=>'required|email',
+           'email' => 'email:rfc,dns|unique:supervisors,email',
            //'email' => ['bail','required', 'string', 'email:dns', 'max:255', 'unique:users'],
-           'PhoneNo'=>'required|regex:/^[-0-9\+]+$/',
+           //'PhoneNo'=>'required|regex:/^[-0-9\+]+$/',
+           'PhoneNo' => ['required', 'digits:10'],
            'Orgname'=>'required|max:255',
            'Orglocation'=>'required|max:255',
            'password'=>'required|min:5|max:30',

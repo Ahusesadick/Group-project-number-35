@@ -11,6 +11,10 @@
     <title>login</title>
 </head>
 <body class=" bg-no-repeat bg-cover" style="background-image: url( {{ asset('images/2.jpg') }})">
+    <a href="#" class="flex items-center pl-2.5 mb-">
+        <img src="{{ asset('images/12.png') }}" class="w-100 mr-3 h-6 sm:h-15" alt="Flowbite Logo" />
+        
+     </a>
     <main class="sm:container sm:mx-auto sm:max-w-lg sm:mt-10">
         <div class="flex">
             <div class="w-full">
@@ -21,6 +25,16 @@
                     </header>
     
                     <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8" method="POST" action="{{ route('coordinator.check') }}">
+                        @if (Session::get('success'))
+                        <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+                            {{ Session::get('success') }}
+                        </div>
+                   @endif
+                   @if (Session::get('fail'))
+                   <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+                       {{ Session::get('fail') }}
+                   </div>
+                   @endif
                         @csrf
     
                         <div class="flex flex-wrap">

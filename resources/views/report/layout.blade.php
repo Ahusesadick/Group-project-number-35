@@ -9,7 +9,7 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="bg-blue-100 h-screen antialiased leading-none font-sans">
+<body class="py-2 bg-grey-100 h-screen antialiased leading-none font-sans">
   
 <div class="container">
     @yield('content')

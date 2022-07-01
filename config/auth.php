@@ -28,6 +28,11 @@ return [
         'model'=>App\Models\Supervisor::class,
     ],
 
+    'orgsupervisor'=>[
+        'driver'=>'eloquent',
+        'model'=>App\Models\Orgsupervisor::class,
+    ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -60,6 +65,11 @@ return [
         'supervisor'=>[
             'driver'=>'session',
             'provider'=>'supervisors',
+        ],
+
+        'orgsupervisor'=>[
+            'driver'=>'session',
+            'provider'=>'orgsupervisors',
         ],
     ],
 
@@ -100,6 +110,11 @@ return [
             'driver'=>'eloquent',
             'model'=>App\Models\Supervisor::class,
         ],
+
+        'orgsupervisors'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Orgsupervisor::class,
+        ],
     ],
 
     /*
@@ -133,6 +148,11 @@ return [
         'supervisors'=>[
             'driver'=>'eloquent',
             'model'=>App\Models\Supervisor::class,
+        ],
+
+        'orgsupervisors'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Orgsupervisor::class,
         ]
         
     ],

@@ -8,9 +8,7 @@
                     <div class="card-header"></div>
                     <div class="card-body">
                        
-                        <a href="{{ url('coordinator/home') }}" class="px-4 hover:bg-pink-700 bg-blue-900 text-2xl font-serif text-white py-2">
-                            <i class="fa fa-plus" aria-hidden="true"></i> HOME
-                        </a>
+                        
                         <br/>
                         
                         <br/>
@@ -49,6 +47,7 @@
                                         <th class="border border-black">date</th>
                                         <th class="border border-black">signature</th>
                                         <th class="border border-black">Actions</th>
+                                        <div>
                                     </tr>
                                 </thead>
                                 <tbody>

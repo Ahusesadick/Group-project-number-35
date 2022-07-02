@@ -6,7 +6,7 @@
         
               
       <h4 class="text-center text-2xl font-bold ">Students information</h4>
-      <a href="{{ url('show') }}" class=" p-2  pl-5 pr-5 bg-blue-900 text-gray-100 text-lg rounded-lg focus:border-4 border-green-300">Convert into PDF</a>
+      <a href="{{ url('showw') }}" class=" p-2  pl-5 pr-5 bg-blue-900 text-gray-100 text-lg rounded-lg focus:border-4 border-green-300">Convert into PDF</a>
             <h1 class="py-4">there are {{ $users->count() }} - users</h1>
      <table class="border-separate border border-blue-900 w-full text-black  text-xl  ">
          <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">

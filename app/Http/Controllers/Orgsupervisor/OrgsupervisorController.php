@@ -13,7 +13,7 @@ class OrgsupervisorController extends Controller
     function create(Request $request)
     {
         $request->validate([
-            'name'=>'required|max:255|regex:/^[a-zA-Z]+$/',
+            'name'=>'required|max:255|regex:/^[a-z A-Z]+$/',
             'email'=>'required|email|unique:orgsupervisors,email',
             //'email' => 'email:rfc,dns|unique:orgsupervisors,email',
             //'email' => ['bail','required', 'string', 'email:dns', 'max:255', 'unique:users'],

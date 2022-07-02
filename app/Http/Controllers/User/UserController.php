@@ -15,10 +15,10 @@ class UserController extends Controller
     function create(Request $request)
    {
        $request->validate([
-           'name'=>'required|max:255|regex:/^[a-zA-Z]+$/',
+           'name'=>'required|max:255|regex:/^[a-z A-Z]+$/',
            //'email'=>'required|email|unique:users,email|regex:/(.+)@(.+)\.(.+)/i',
-           //'email'=>'required|email',
-           'email' => 'email:rfc,dns|unique:users,email',
+           'email'=>'required|unique:users,email',
+           //'email' => 'email:rfc,dns|unique:users,email',
            //'email' => ['bail','required', 'string', 'email:dns', 'max:255', 'unique:users'],
            'RegNo'=>'required|max:255',
            'Programme'=>'required|max:255',
@@ -78,6 +78,7 @@ class UserController extends Controller
    }
 
    
+
 
 }
 

@@ -13,10 +13,10 @@ class SupervisorController extends Controller
     function create(Request $request)
    {
        $request->validate([
-           'name'=>'required|max:255|regex:/^[a-zA-Z]+$/',
+           'name'=>'required|max:255|regex:/^[a-z A-Z]+$/',
            //'email'=>'required|email|unique:supervisors,email',
-           //'email'=>'required|email',
-           'email' => 'email:rfc,dns|unique:supervisors,email',
+           'email'=>'required|unique:supervisors,email',
+           //'email' => 'email:rfc,dns|unique:supervisors,email',
            //'email' => ['bail','required', 'string', 'email:dns', 'max:255', 'unique:users'],
            //'PhoneNo'=>'required|regex:/^[-0-9\+]+$/',
            'PhoneNo' => ['required', 'digits:10'],

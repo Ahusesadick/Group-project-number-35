@@ -12,7 +12,7 @@ class ShowController extends Controller
     public function users()
     {
         $users=User::all();
-        return view ('show',\compact('users'));
+        return view ('showw',\compact('users'));
     }
 
    

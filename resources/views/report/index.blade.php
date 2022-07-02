@@ -8,11 +8,8 @@
                     <div class="card-header"></div>
                     <div class="card-body">
                        
-                        
-                        <br/>
-                        
-                        <br/>
-                        <div class="table-responsive">
+                        <a href="{{ url('report.show') }}" class="py-4 p-2  pl-5 pr-5 bg-blue-900 text-gray-100 text-lg rounded-lg focus:border-4 border-green-300">Convert into PDF</a>
+                        <div class="py-8 table-responsive">
                             <table class="border-separate border border-blue-900 w-full text-black  text-xl  ">
                                 <thead>
                                     <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">

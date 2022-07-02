@@ -28,13 +28,13 @@
               Student
             </a>
             <a href="{{ route('supervisor.login') }}" class="py-2 px-4 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-              Supervisor
+              Host Supervisor
             </a>
             <a href="{{ route('coordinator.login') }}" class="py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-r-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
               Coordinator
             </a>
             <a href="{{ route('orgsupervisor.login') }}" class="py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-r-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                Organization Supervisor
+                Supervisor
               </a>
           </div>
           
@@ -44,7 +44,7 @@
         
         <div class="flex flex-col justify-around h-full">
             <div>
-                <h1  class="  text-center text-white font-bold text-3xl"><marquee>WELCOME TO OUR SYSTEM</marquee></h1>
+                <h1  class="  text-center text-white font-bold text-3xl"></h1>
                 <h1 class="mb-6 text-white font-bold font-serif  text-center  tracking-wider text-3xl sm:mb-8 sm:text-5xl">
                     {{ config('', ) }}
                 </h1>

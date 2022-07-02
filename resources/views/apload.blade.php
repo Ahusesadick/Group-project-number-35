@@ -1,21 +1,16 @@
-    <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'frsys') }}</title>
-
-    <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <title>apload </title>
 </head>
-<body class="bg-gray-100 h-screen antialiased leading-none font-sans">
+<body class=" bg-blue-100" >
     <div id="app">
         <header class="bg-blue-900 py-6">
 
@@ -82,66 +77,80 @@
               </div>
         </div>
 
-
-    <div class="flex justify-center py-2 ">
-        <div class="w-4/6 bg-white p-6 rounded-lg">
-            <a href="{{ url('post.index') }}" class=" p-2  pl-5 pr-5 bg-blue-900 text-gray-100 text-lg rounded-lg focus:border-4 border-green-300">Convert into PDF</a>
-            <h1 class="py-4">there are {{ $posts->count() }} - posts</h1>
-                        <div class="card-body">
-                            
-                           
-                            <div class="table-responsive">
-                                <table class="border-separate border border-blue-900 w-full text-black  text-xl  ">
-                                    <thead>
-                                        <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                            <th class="border border-black">id</th>
-                                            <th class="border border-black">Name</th>
-                                            <th class="border border-black">RegNo</th>
-                                            <th class="border border-black">Programe</th>
-                                            
-                                            <th class="border border-black">Date</th>
-                                            <th class="border border-black">Description</th>
-                                            
-                                            <th class="border border-black">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                @if ($posts->count()>0)
-                                    
-                                   
-                                    @foreach($posts as $item)
-                                        <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                            <th class="border border-black">{{ $item->id }}</th>
-                                            <td class="border border-black"><span>{{ Auth::guard('web')->user()->name }}</span></td>
-                                            <td class="border border-black"><span>{{ Auth::guard('web')->user()->RegNo }}</span></td>
-                                            <td class="border border-black"><span>{{ Auth::guard('web')->user()->Programme }}</span></td>
-                                            
-                                            <td class="border border-black">{{ $item->date }}</td>
-                                            <td class="border border-black">{{ $item->description }}</td>
-                                            
-     
-                                            <td class="border border-black">
-                                                
-                                               
-     
-                                                <form method="POST" action="{{ url('/post' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
-                                                    {{ method_field('DELETE') }}
-                                                    {{ csrf_field() }}
-                                                    <button type="submit" class="py-2  p-2 pl-5 pr-5 bg-red-700 text-gray-100 text-lg rounded-lg focus:border-4 border-red-300" title="Delete post" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                @endif
-                                  
-                                    </tbody>
-                                </table>
-                            </div>
+    <main class="sm:container sm:mx-auto sm:max-w-lg sm:mt-10" >
+        <div class="flex">
+            <div class="w-full">
+                
     
+                    <header class="text-center font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+                        {{ __('apload file') }}
+                       
+                       
+                    </header>
+    
+                    <form class=" w-full px-6 space-y-6 sm:px-10 sm:space-y-8" method="POST" action="{{ url('aploadfile') }}" enctype="multipart/form-data">
+                        @if (Session::get('success'))
+                    <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+                        {{ Session::get('success') }}
+                    </div>
+               @endif
+               @if (Session::get('fail'))
+               <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+                   {{ Session::get('fail') }}
+               </div>
+               @endif
+                        @csrf
+    
+                        <div class="flex flex-wrap">
+                            <label for="filename" class="block text-black text-sm font-bold mb-2 sm:mb-4">
+                                {{ __('filename') }}:
+                            </label>
+    
+                            <input id="name" type="name"
+                                class="form-input w-full @error('email') border-red-500 @enderror" name="name"
+                                value="{{ old('name') }}" required autocomplete="filename" autofocus>
+    
+                            @error('name')
+                            <p class="text-red-500 text-xs italic mt-4">
+                                {{ $message }}
+                            </p>
+                            @enderror
                         </div>
-        </div> 
-        <footer>
-            @include('dashboard.footer')
-        </footer>     
+    
+                        <div class="flex flex-wrap">
+                            <label for="file" class="block text-black text-sm font-bold mb-2 sm:mb-4">
+                                {{ __('file') }}:
+                            </label>
+    
+                            <input id="file" type="file"
+                                class="form-input w-full @error('file') border-red-500 @enderror" name="file"
+                                required>
+    
+                            @error('file')
+                            <p class="text-red-500 text-xs italic mt-4">
+                                {{ $message }}
+                            </p>
+                            @enderror
+                        </div>
+    
+                        
+    
+                        <div class="flex flex-wrap">
+                            <button type="submit"
+                            class="w-full select-none font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-700 sm:py-4">
+                                {{ __('apload') }}
+                            </button>
+    
+                            
+                        </div>
+                    </form>
+    
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer>
+        @include('dashboard.footer')
+    </footer> 
 </body>
 </html>

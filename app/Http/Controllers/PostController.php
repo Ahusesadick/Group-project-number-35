@@ -47,7 +47,10 @@ class PostController extends Controller
      <h6>supervisor name________________________</h6>
      <h6>Date___________________________________</h6>
      <h6>signature______________________________</h6>
+     
+      
      <table width="100%" style="border-collapse: collapse; border: 0px;">
+     
       <tr>
     
     <th style="border: 1px solid; padding:12px;" width="30%">Name</th>

@@ -74,7 +74,7 @@
                      <li>
                         <a href="{{ url('/uploadpage') }}" class="py-9 flex items-center p-2 text-base font-normal text-white rounded-lg transition duration-75 hover:bg-blue-900 dark:hover:bg-gray-700 dark:text-white group">
                            <svg class="flex-shrink-0 w-6 h-6 text-white transition duration-75 dark:text-white group-hover:text-white dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path></svg>
-                           <span class="ml-3">Apload report</span>
+                           <span class="ml-3">upload report</span>
                         </a>
                      </li>
                   
@@ -87,18 +87,17 @@
         <div class="w-4/6 bg-white p-6 rounded-lg">
             <a href="{{ url('post.index') }}" class=" p-2  pl-5 pr-5 bg-blue-900 text-gray-100 text-lg rounded-lg focus:border-4 border-green-300">Convert into PDF</a>
             <h1 class="py-4">there are {{ $posts->count() }} - posts</h1>
+            <h1 class="text-2xl font-bold text-center">NAME:    {{ Auth::guard('web')->user()->name }}..........REG NUMBER:    {{ Auth::guard('web')->user()->RegNo }}...........PROGRAMME:      {{ Auth::guard('web')->user()->Programme }}</h1>
+            
                         <div class="card-body">
                             
                            
-                            <div class="table-responsive">
+                            <div class="table-responsive py-4">
                                 <table class="border-separate border border-blue-900 w-full text-black  text-xl  ">
                                     <thead>
                                         <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
                                             <th class="border border-black">id</th>
-                                            <th class="border border-black">Name</th>
-                                            <th class="border border-black">RegNo</th>
-                                            <th class="border border-black">Programe</th>
-                                            
+                                                                                      
                                             <th class="border border-black">Date</th>
                                             <th class="border border-black">Description</th>
                                             
@@ -112,10 +111,7 @@
                                     @foreach($posts as $item)
                                         <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
                                             <th class="border border-black">{{ $item->id }}</th>
-                                            <td class="border border-black"><span>{{ Auth::guard('web')->user()->name }}</span></td>
-                                            <td class="border border-black"><span>{{ Auth::guard('web')->user()->RegNo }}</span></td>
-                                            <td class="border border-black"><span>{{ Auth::guard('web')->user()->Programme }}</span></td>
-                                            
+                                                                                       
                                             <td class="border border-black">{{ $item->date }}</td>
                                             <td class="border border-black">{{ $item->description }}</td>
                                             

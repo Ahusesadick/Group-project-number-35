@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Exports\UsersExport;
 
 use Illuminate\Http\Request;
 use PDF;
+use Maatwebsite\Excel\Facades\Excel;
+
+
+//use Maatwebsite\Excel\Concerns\FromView;
+
 
 
 class ShowController extends Controller
@@ -14,6 +20,12 @@ class ShowController extends Controller
         $users=User::all();
         return view ('showw',\compact('users'));
     }
+
+    public function export(){
+      $users = User::all();
+      return Excel::download(new UsersExport($users),'users.xlsx');
+      //return Excel::download(new UsersExport, 'users.xlsx');
+  }
 
    
 
@@ -47,8 +59,8 @@ class ShowController extends Controller
     <th style="border: 1px solid; padding:12px;" width="15%">RegNo</th>
     <th style="border: 1px solid; padding:12px;" width="15%">Programme</th>
     <th style="border: 1px solid; padding:12px;" width="15%">PhoneNo</th>
-    <th style="border: 1px solid; padding:12px;" width="15%">Organization name</th>
-    <th style="border: 1px solid; padding:12px;" width="15%">Organization location</th>
+    <th style="border: 1px solid; padding:12px;" width="15%">Org name</th>
+    <th style="border: 1px solid; padding:12px;" width="15%">Org location</th>
    
     
    </tr>

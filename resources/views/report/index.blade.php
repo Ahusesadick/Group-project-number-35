@@ -9,6 +9,7 @@
                     <div class="card-body">
                        
                         <a href="{{ url('report.show') }}" class="py-4 p-2  pl-5 pr-5 bg-blue-900 text-gray-100 text-lg rounded-lg focus:border-4 border-green-300">Convert into PDF</a>
+                        
                         <div class="py-8 table-responsive">
                             <table class="border-separate border border-blue-900 w-full text-black  text-xl  ">
                                 <thead>

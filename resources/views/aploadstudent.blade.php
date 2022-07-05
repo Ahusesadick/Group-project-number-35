@@ -59,7 +59,7 @@
                 
     
                     <header class="text-center font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
-                        {{ __('apload file') }}
+                        {{ __('upload file') }}
                        
                        
                     </header>
@@ -114,7 +114,7 @@
                         <div class="flex flex-wrap">
                             <button type="submit"
                             class="w-full select-none font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-700 sm:py-4">
-                                {{ __('apload') }}
+                                {{ __('upload') }}
                             </button>
     
                             

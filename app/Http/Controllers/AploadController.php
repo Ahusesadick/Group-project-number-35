@@ -34,10 +34,10 @@ class AploadController extends Controller
 
         $data->save();
         if( $request ){
-            return redirect()->back()->with('success','file apploded successfull');
+            return redirect()->back()->with('success','file upploded successfull');
 
         }else{
-            return redirect()->back()->with('fall','something went wrong, failed to apload');
+            return redirect()->back()->with('fall','something went wrong, failed to upload');
         }
  
     }

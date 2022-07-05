@@ -118,6 +118,7 @@ Route::get('/post.index', [PostController::class,'pdf']);
 Route::get('/showw', [ShowController::class,'users']);
 
 Route::get('/showw', [ShowController::class,'pdf']);
+Route::get('/export',[ShowController::class,'export']);
 
 
 Route::get('/showsupervisor', [ShowSupervisorController::class,'supervisors']);

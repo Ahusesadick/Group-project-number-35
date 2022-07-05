@@ -25,7 +25,7 @@ class PostController extends Controller
     function get_posts()
     {
         $user = Auth::user();
-     $posts = post::where('user_id',$user->id)->orderBy('id','asc')->limit(30)->get();
+     $posts = post::where('user_id',$user->id)->orderBy('id','asc')->limit(20)->get();
      //$posts = DB::table('posts')
          //->limit(5)
          //->get();
@@ -43,42 +43,87 @@ class PostController extends Controller
     {
      $posts = $this->get_posts();
      $output = '
-     <h3 align="center">Student report information</h3>
-     <h6>supervisor name________________________</h6>
-     <h6>Date___________________________________</h6>
-     <h6>signature______________________________</h6>
+     
+     
+     <h1 align="center">FIELD TRAINING REPORT</h1>
+     <h1>NAME:'.Auth::guard('web')->user()->name.'<br>REG NUMER:'.Auth::guard('web')->user()->RegNo.'<br>PROGRAMME:'.Auth::guard('web')->user()->Programme.'</h1>
+     
+     
+     
+     <br><br><br><br><br><br>
+     
+     <h1>NAME OF THE HOST INSTITUTION:'.Auth::guard('web')->user()->Orgname.'<br><br>ADDRESS:'.Auth::guard('web')->user()->Orglocation.'</h1>
+     
+
+     <br><br><br><br><br><br>
+     <h1>INSTITUTION FIELD SUPERVISOR:</h1>
+     <h1>NAME:______________________________</h1>
+     <h1>SIGNATURE:_________________________</h1>
+     <h1>DATE:______________________________</h1>
+
+     <br><br><br><br><br><br>
+     <style>
+td, th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  height: 70px;
+}
+
+th {
+    font-size: xx-large;
+  }
+
+td {
+    height: 50px;
+  }
+
+  td {
+    font-size: xx-large;
+  }
+</style>
+     <table >
      
       
-     <table width="100%" style="border-collapse: collapse; border: 0px;">
+      
+      
+      
      
-      <tr>
+    <tr>
+    <th >Description</th>
+    <th >Date</th>
     
-    <th style="border: 1px solid; padding:12px;" width="30%">Name</th>
-    <th style="border: 1px solid; padding:12px;" width="30%">RegNo</th>
-    <th style="border: 1px solid; padding:12px;" width="30%">Programme</th>
-    <th style="border: 1px solid; padding:12px;" width="15%">Date</th>
-    <th style="border: 1px solid; padding:12px;" width="15%">Description</th>
     
    </tr>
    
      ';  
      foreach($posts as $post)
      {
+        
       $output .= '
+
       <tr>
-      
-       
-       <td style="border: 1px solid; padding:12px;">'.Auth::guard('web')->user()->name.'</td>
-       <td style="border: 1px solid; padding:12px;">'.Auth::guard('web')->user()->RegNo.'</td>
-       <td style="border: 1px solid; padding:12px;">'.Auth::guard('web')->user()->Programme.'</td>
-       <td style="border: 1px solid; padding:12px;">'.$post->date.'</td>
-       <td style="border: 1px solid; padding:12px;">'.$post->description.'</td>
-       
+      <td >'.$post->description.'</td>
+      <td >'.$post->date.'</td>
       </tr>
-      
+    
       ';
       
      }
+     $output .= '
+     <br>
+     <table>
+     <tr>
+     <h2>Stamp and signature:___________</h2>
+     </tr>
+     </table>
+     ';
      
      $output .= '</table>';
      

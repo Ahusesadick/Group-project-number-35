@@ -43,6 +43,8 @@ class CreateReportsTable extends Migration
             $table->date('date');
             $table->string('signature');
             $table->timestamps();
+            //$table->bigInteger('supervisor_id')->unsigned();
+           // $table->foreign('supervisor_id')->references('id')->on('supervisors')->onDelete('cascade');
         });
     }
 

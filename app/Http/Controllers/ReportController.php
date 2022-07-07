@@ -71,11 +71,12 @@ class ReportController extends Controller
 
     function get_reports()
     {
-        //$report = Report::find($id);
-        $user = Auth::user();
-        $reports = report::all();
+        //$report = Report::find();
+        //$user = Auth::user();
+        //$reports = report::all();
         
-     //$reports = Report::orderBy('id','asc')->limit(30)->get();
+        
+     $reports = Report::orderBy('id','asc')->limit(1)->get();
      //$users = DB::table('users')
        //  ->limit(10)
         // ->get();
@@ -203,7 +204,7 @@ class ReportController extends Controller
        <br><h3 Align="center">Thank you very much for being a good supervisor in providing this valuable practical training to our students. We look forward to having stronger relationship.</h3><br>
       
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-       <br><h3>Another report</h3><br>
+       
       ';
       
      }

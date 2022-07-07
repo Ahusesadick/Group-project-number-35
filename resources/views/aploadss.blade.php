@@ -70,7 +70,7 @@
                        
                     </header>
     
-                    <form class=" w-full px-6 space-y-6 sm:px-10 sm:space-y-8" method="POST" action="{{ url('aploadfilestudent') }}" enctype="multipart/form-data">
+                    <form class=" w-full px-6 space-y-6 sm:px-10 sm:space-y-8" method="POST" action="{{ url('aploadfiless') }}" enctype="multipart/form-data">
                         @if (Session::get('success'))
                     <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
                         {{ Session::get('success') }}

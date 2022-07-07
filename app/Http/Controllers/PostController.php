@@ -15,7 +15,8 @@ class PostController extends Controller
     {
         $user = Auth::user();
         //$posts = post::all();
-        $posts = post::where('user_id',$user->id)->orderBy('id','asc')->get();
+        //$posts = post::where('user_id',$user->id)->orderBy('id','asc')->get();
+        $posts = post::where('user_id',$user->id)->orderBy('id','asc')->paginate(4);
         //dd($posts);
         return view ('post.index',compact('user','posts'));//->with('posts', $posts);
 
@@ -61,34 +62,10 @@ class PostController extends Controller
      <h1>SIGNATURE:_________________________</h1>
      <h1>DATE:______________________________</h1>
 
-     <br><br><br><br><br><br>
-     <style>
-td, th {
-  border: 1px solid black;
-}
+     <br><br><br><br><br><br><br><br>
+     
 
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-th {
-  height: 70px;
-}
-
-th {
-    font-size: xx-large;
-  }
-
-td {
-    height: 50px;
-  }
-
-  td {
-    font-size: xx-large;
-  }
-</style>
-     <table >
+     <table style="max-width: 2480px; width: 100%; border-collapse: collapse;">
      
       
       
@@ -96,8 +73,8 @@ td {
       
      
     <tr>
-    <th >Description</th>
-    <th >Date</th>
+    <th style="word-wrap: break-word; width: outo; overflow: hiden; border: 1px solid; font-size: xx-large;">Description</th>
+    <th style="word-wrap: break-word; width: outo; overflow: hiden; border: 1px solid; font-size: xx-large;">Date</th>
     
     
    </tr>
@@ -109,8 +86,8 @@ td {
       $output .= '
 
       <tr>
-      <td >'.$post->description.'</td>
-      <td >'.$post->date.'</td>
+      <td style="word-wrap: break-word; width: outo; overflow: hiden; border: 1px solid;" font-size: 4vmax;>'.$post->description.'</td>
+      <td style="word-wrap: break-word; width: outo; overflow: hiden; border: 1px solid;" font-size: 4vmax;>'.$post->date.'</td>
       </tr>
     
       ';
@@ -123,6 +100,7 @@ td {
      <h2>Stamp and signature:___________</h2>
      </tr>
      </table>
+     
      ';
      
      $output .= '</table>';

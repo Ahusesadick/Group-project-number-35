@@ -13,6 +13,7 @@ use App\Http\Controllers\DynamicPDFController;
 use App\Http\Controllers\AploadController;
 use App\Http\Controllers\AploadStudentController;
 use App\Http\Controllers\AploadSController;
+use App\Http\Controllers\AploadSSController;
 
 
 
@@ -150,5 +151,12 @@ Route::post('/aploadfiles',[AploadSController::class,'stores']);
 Route::get('/shows',[AploadSController::class,'shows']);
 Route::get('/downloads/{file}',[AploadSController::class,'downloads']);
 Route::get('/views/{id}',[AploadSController::class,'views']);
+
+
+Route::get('/uploadpagess',[AploadSSController::class,'uploadpagess']);
+Route::post('/aploadfiless',[AploadSSController::class,'storess']);
+Route::get('/showss',[AploadSSController::class,'showss']);
+Route::get('/downloadss/{file}',[AploadSSController::class,'downloadss']);
+Route::get('/viewss/{id}',[AploadSSController::class,'viewss']);
 
 

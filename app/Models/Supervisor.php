@@ -44,4 +44,10 @@ class Supervisor extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+   // public function report()
+    //{
+    //    return $this->hasOne('App\Models\Report');
+    //}
 }

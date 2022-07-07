@@ -38,5 +38,11 @@ class Report extends Model
             'email',
            'date',
            'signature',
+           //'supervisor_id'
     ];
+
+    //public function supervisor()
+    //{
+    //  return $this->belongsTo('App\Models\Supervisor');
+   // }
 }

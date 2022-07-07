@@ -15,7 +15,7 @@ class CoordinatorSeeder extends Seeder
      */
     public function run()
     {
-        $Coordinator::create([
+        $Coordinators::create([
             'name'=>'coordinator',
             'phone'=>'0742302557',
             'email'=>'coordinator@gmail.com',
